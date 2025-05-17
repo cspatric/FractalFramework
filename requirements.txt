@@ -1,0 +1,11 @@
+typer[all]
+uvicorn
+fastapi[all]
+uvicorn
+httpx
+pydantic
+python-dotenv
+sqlalchemy 
+python-dotenv
+pymysql
+cryptography

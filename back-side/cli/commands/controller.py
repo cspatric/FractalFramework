@@ -1,3 +1,5 @@
+# back-side/cli/commands/controller.py
+
 import os
 
 def make_controller(name: str):
@@ -17,4 +19,4 @@ def index():
     with open(path, "w") as f:
         f.write(content)
 
-    print(f"✔ Controller '{name}' created successfully at {path}")
+    print(f"✔ Controller '{name}' criado com sucesso em {path}")

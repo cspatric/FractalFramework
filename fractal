@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Caminho absoluto da raiz do projeto
+export PROJECT_DIR="/Users/cspatric/Desktop/Fractal"
+
+# Entra na pasta back-end
+cd "$PROJECT_DIR/back-side" || exit 1
+
+# Executa o CLI
+python3 -m cli.main "$@"

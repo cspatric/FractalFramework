@@ -1,3 +1,5 @@
+# back-side/cli/commands/migration.py
+
 import os
 from datetime import datetime
 
@@ -7,12 +9,13 @@ def make_migration(name: str):
     path = os.path.join("app", "database", "migrations", filename)
 
     content = f"""# Migration: {name}
-def upgrade():
-    # write commands to apply the migration
+
+def upgrade(engine):
+    # Escreva aqui os comandos de upgrade (ex: engine.execute(...))
     pass
 
-def downgrade():
-    # write commands to undo the migration
+def downgrade(engine):
+    # Escreva aqui os comandos de downgrade (reversão)
     pass
 """
 
@@ -20,4 +23,4 @@ def downgrade():
     with open(path, "w") as f:
         f.write(content)
 
-    print(f"✔ Migration '{filename}' created successfully.")
+    print(f"✔ Migration '{filename}' criada com sucesso em {path}")

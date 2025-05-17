@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- COMPONENT_META -->
+    <title>Fractal</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Auto reload simples -->
+    <script>
+      let lastModified = null
+    
+      async function checkForUpdate() {
+        try {
+          const res = await fetch('/static/index.html', { method: 'HEAD', cache: 'no-store' })
+          const newModified = res.headers.get('Last-Modified')
+    
+          if (lastModified && newModified !== lastModified) {
+            console.log('🟡 Detecção de alteração. Recarregando página...')
+            location.reload()
+          }
+    
+          lastModified = newModified
+        } catch (e) {
+          console.warn('⚠️ Erro ao verificar atualizações:', e)
+        }
+      }
+    
+      setInterval(checkForUpdate, 3000)
+    </script>
+    
+  </body>
+</html>
