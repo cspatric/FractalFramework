@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Erro | Fractal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --purple-500: #8b5cf6;
+      --purple-600: #7c3aed;
+      --pink-500: #ec4899;
+      --slate-900: #0f172a;
+      --violet-800: #5b21b6;
+      --error-400: #f87171;
+      --error-500: #ef4444;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--slate-900), var(--violet-800));
+      color: white;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .error-container {
+      width: 90%;
+      max-width: 900px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+      overflow: hidden;
+    }
+    
+    .error-header {
+      padding: 1.5rem 2rem;
+      background: rgba(139, 92, 246, 0.1);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .error-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+      background: linear-gradient(90deg, #fca5a5, #f87171);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .error-content {
+      padding: 2rem;
+    }
+    
+    .error-message {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #fca5a5;
+    }
+    
+    .error-details {
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 0.75rem;
+      border: 1px solid rgba(248, 113, 113, 0.2);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    
+    .error-file {
+      padding: 0.75rem 1.5rem;
+      background: rgba(239, 68, 68, 0.1);
+      border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      color: var(--error-400);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .error-code {
+      padding: 1rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+    
+    .error-line {
+      display: flex;
+      margin-bottom: 0.25rem;
+    }
+    
+    .line-number {
+      color: #64748b;
+      min-width: 40px;
+      text-align: right;
+      padding-right: 1rem;
+      user-select: none;
+    }
+    
+    .line-content {
+      flex: 1;
+    }
+    
+    .error-line.highlight {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error-400);
+    }
+    
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+    
+    .error-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .error-btn-primary {
+      background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+      color: white;
+    }
+    
+    .error-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+    }
+    
+    .error-btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .error-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-header">
+      <div class="error-icon">
+        <i class="fas fa-exclamation"></i>
+      </div>
+      <h1 class="error-title">Python Runtime Error</h1>
+    </div>
+    
+    <div class="error-content">
+      <div class="error-message">
+        <p><!-- ERROR_MESSAGE --></p>
+      </div>
+      
+      <div class="error-details">
+        <div class="error-file">
+          <i class="fas fa-file-code"></i>
+          <!-- ERROR_FILE -->
+        </div>
+        
+        <div class="error-code">
+          <!-- ERROR_TRACE -->
+        </div>
+      </div>
+      
+      <div class="error-actions">
+        <button class="error-btn error-btn-secondary" onclick="window.history.back()">
+          <i class="fas fa-times"></i> Go Back
+        </button>
+        <button class="error-btn error-btn-primary" onclick="window.location.reload()">
+          <i class="fas fa-redo"></i> Try Again
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+  
+</html>

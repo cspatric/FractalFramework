@@ -1,0 +1,1 @@
+import{j as t}from"./index-Dq0PFZGT.js";import{A as e}from"./AuthLayout-Bf2UWsTH.js";import"./iconBase-CgfHiXO_.js";function x(){return t.jsxs(e,{children:[t.jsx("h1",{className:"text-3xl font-bold text-blue-600",children:"Sidebar Menu Navigation Menu Bar"}),t.jsx("p",{className:"mt-2 text-xl text-gray-700",children:"HTML CSS & JavaScript"})]})}export{x as default};
