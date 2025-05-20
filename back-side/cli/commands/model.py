@@ -1,5 +1,4 @@
 # back-side/cli/commands/model.py
-
 import os
 
 def make_model(name: str):

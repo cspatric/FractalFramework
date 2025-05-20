@@ -1,98 +1,95 @@
+import { useState } from 'react';
+import Documentation from '../Pages/Docs/Documentation';
+
 export default function Welcome() {
+  const [showDoc, setShowDoc] = useState(false);
+
+  if (showDoc) return <Documentation />;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-violet-800 text-white">
-      {/* Navbar futurista */}
-      <nav className="flex items-center justify-between px-6 py-4 bg-black/30 backdrop-blur-md border-b border-violet-500/20">
+    <div className="min-h-screen bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors">
+      {/* Navbar */}
+      <nav className="flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
         <div className="flex items-center space-x-3">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 animate-pulse"></div>
-          <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-600 to-blue-500"></div>
+          <span className="text-xl font-bold text-gray-900 dark:text-white">
             Fractal
           </span>
         </div>
-        <div className="space-x-6">
-          <a
-            href="/login"
-            className="text-sm font-medium hover:text-purple-300 transition-colors duration-300"
+        <div className="space-x-4">
+          <a 
+            href="/login" 
+            className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
           >
             Login
           </a>
-          <a
-            href="/register"
-            className="text-sm font-medium bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-2 rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+          <a 
+            href="/register" 
+            className="text-sm font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white px-4 py-2 rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all"
           >
             Register
           </a>
         </div>
       </nav>
 
-      {/* Conteúdo principal */}
+      {/* Main Content */}
       <div className="flex items-center justify-center px-4 py-16">
-        <div className="w-full max-w-2xl rounded-3xl bg-black/20 backdrop-blur-md p-10 shadow-2xl shadow-purple-500/10 border border-violet-500/20 text-center">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
-            Bem-vindo ao Fractall
+        <div className="w-full max-w-2xl rounded-2xl bg-white dark:bg-gray-800 p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+          <h1 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
+            Welcome to Fractal
           </h1>
-          <p className="text-violet-200 mb-8 text-lg">
-            Sua plataforma modular, rápida e escalável — ideal para projetos modernos com React e Python.
+          <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg text-center">
+            Your modular, fast and scalable platform — perfect for modern projects with React and Python.
           </p>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 mt-8 text-left">
-            {/* Card 1 */}
-            <div className="rounded-2xl bg-gradient-to-br from-violet-900/70 to-purple-900/70 p-6 border border-violet-500/20 hover:border-pink-400/30 transition-all hover:scale-[1.02]">
-              <div className="mb-2 text-xs uppercase font-semibold text-pink-300">Documentação</div>
-              <h3 className="text-xl font-bold mb-3">Documentação Completa</h3>
-              <p className="text-sm mb-4 text-violet-200">
-                Saiba como estruturar projetos com o Fractal Framework usando React e FastAPI.
+          <div className="grid gap-5 md:grid-cols-2 mt-8 text-left">
+            <div
+              className="cursor-pointer rounded-xl bg-white dark:bg-gray-800 p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all hover:border-purple-500 dark:hover:border-purple-400"
+              onClick={() => setShowDoc(true)}
+            >
+              <div className="text-xs uppercase font-semibold text-purple-600 dark:text-purple-400 mb-2">
+                Documentation
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+                Complete Documentation
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                Learn how to structure projects with Fractal Framework using React and FastAPI.
               </p>
-              <a href="#" className="text-pink-300 font-medium text-sm hover:underline flex items-center gap-1">
-                ACESSAR <span className="text-lg">→</span>
-              </a>
+              <span className="text-purple-600 dark:text-purple-400 font-medium text-sm hover:underline">
+                ACCESS →
+              </span>
             </div>
 
-            {/* Card 2 */}
-            <div className="rounded-2xl bg-gradient-to-br from-cyan-900/70 to-teal-900/70 p-6 border border-cyan-500/20 hover:border-cyan-400/30 transition-all hover:scale-[1.02]">
-              <div className="mb-2 text-xs uppercase font-semibold text-cyan-300">Guias rápidos</div>
-              <h3 className="text-xl font-bold mb-3">Primeiros Passos</h3>
-              <p className="text-sm mb-4 text-cyan-200">
-                Comece seu primeiro projeto com rotas, componentes e estrutura integrada.
+            <div className="rounded-xl bg-white dark:bg-gray-800 p-6 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all hover:border-purple-500 dark:hover:border-purple-400">
+              <div className="text-xs uppercase font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                Quick Start
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+                First Steps
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                Get started with your first project using our step-by-step guide.
               </p>
-              <a href="#" className="text-cyan-300 font-medium text-sm hover:underline flex items-center gap-1">
-                COMEÇAR <span className="text-lg">→</span>
-              </a>
-            </div>
-
-            {/* Card 3 */}
-            <div className="rounded-2xl bg-gradient-to-br from-emerald-900/70 to-green-900/70 p-6 border border-emerald-500/20 hover:border-emerald-400/30 transition-all hover:scale-[1.02]">
-              <div className="mb-2 text-xs uppercase font-semibold text-emerald-300">Atualizações</div>
-              <h3 className="text-xl font-bold mb-3">Novas Funcionalidades</h3>
-              <p className="text-sm mb-4 text-emerald-200">
-                Veja as últimas features implementadas no framework e contribua com ideias.
-              </p>
-              <a href="#" className="text-emerald-300 font-medium text-sm hover:underline flex items-center gap-1">
-                EXPLORAR <span className="text-lg">→</span>
-              </a>
-            </div>
-
-            {/* Card 4 */}
-            <div className="rounded-2xl bg-gradient-to-br from-amber-900/70 to-yellow-900/70 p-6 border border-amber-500/20 hover:border-amber-400/30 transition-all hover:scale-[1.02]">
-              <div className="mb-2 text-xs uppercase font-semibold text-amber-300">Visão técnica</div>
-              <h3 className="text-xl font-bold mb-3">Mais Detalhes</h3>
-              <p className="text-sm mb-4 text-amber-200">
-                Entenda a filosofia por trás do Fractal, estrutura MVC e uso de DAGs.
-              </p>
-              <a href="#" className="text-amber-300 font-medium text-sm hover:underline flex items-center gap-1">
-                SABER MAIS <span className="text-lg">→</span>
+              <a 
+                href="/login" 
+                className="text-blue-600 dark:text-blue-400 font-medium text-sm hover:underline"
+              >
+                GET STARTED →
               </a>
             </div>
           </div>
 
-          <a
-            href="/login"
-            className="inline-block mt-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 text-white font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:scale-105"
-          >
-            Começar agora
-          </a>
+          <div className="mt-10 text-center">
+            <a
+              href="/login"
+              className="inline-block rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 px-8 py-3 text-white font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:scale-[1.02]"
+            >
+              Get Started Now
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
