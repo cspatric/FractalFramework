@@ -1,7 +1,7 @@
 import os
 import importlib.util
 from sqlalchemy import text
-from app.database.db import engine
+from app.core.session import engine
 import typer
 
 def run_migrations():

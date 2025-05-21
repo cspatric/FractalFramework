@@ -5,14 +5,38 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email === 'admin@fractal.dev' && password === '123456') {
-      setMessage('Login successful!');
-    } else {
-      setMessage('Invalid email or password');
+  
+    const formData = new URLSearchParams();
+    formData.append("email", email);
+    formData.append("password", password);
+  
+    try {
+      const response = await fetch("/login/store", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData.toString(),
+      });
+  
+      if (response.redirected) {
+        window.location.href = response.url;
+      } else {
+        const html = await response.text();
+        if (html.includes("Credenciais inválidas")) {
+          setMessage("Invalid email or password.");
+        } else {
+          setMessage("Unexpected error.");
+        }
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setMessage("Connection error. Please try again.");
     }
   };
+  
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">

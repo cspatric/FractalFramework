@@ -1,5 +1,3 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 import os
 
@@ -21,10 +19,3 @@ def get_database_url():
         raise ValueError("❌ .env is incomplete or database is not configured.")
 
     return f"{db_conn}://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
-
-DATABASE_URL = get_database_url()
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-def get_session():
-    return SessionLocal()
